@@ -1,0 +1,90 @@
+/*Ajustar componentes todos los elementos a los bordes de mi marco ajustado a la caja*/
+*{/*Ajusta a fila pega pared izq*/
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/*todos los elementos de galeria todas las letras verdanas*/
+.galeria{
+    font-family: Verdana;
+
+}
+/*Linea que podía haber sido hr*/
+.linea{
+    border-top: 5px solid #0077c0;/*Border topo ¿?*/
+    margin-bottom: 40px;
+}
+.contenedor-imagenes{
+    display: flex;/*Haga elementos flexibles*/
+    width: 90%;/*de lo que me ocupe del area de trabajo que haya porcentaje como un marco, siempre que ocupen elementos 90%*/
+    margin: auto;/*dependiendo del dispositivo*/
+    justify-content: space-around;/*Espacio alrededor de las img*/
+    flex-wrap: wrap;/*Que se adapte a la ubicacion de la caja*/
+    border-radius: 3px;/*Bordes redondeados*/
+}
+.contenedor-imagenes .imagen{
+    width: 33%;
+    position: relative;/*no dependian de la parte superior si no del elemento depende del div no de la clase antonio-raul clase absoluta antonio se mueve respecto a la clase*/
+    height: 250px;
+    margin-bottom: 5px ;/*Separado de la parte de abajo separacion de filas*/
+    box-shadow: 0px 0px 3px 0px rgba(0, 0n, 0, 0.75);/*dandole una capa de sombreado el rgba nomenclatura colores la capa alfa contraste va con . no ,*/
+}
+/**/
+.imagen img{
+    width: 100%;
+    height: 100%;
+    /*Imagenes que acupen 100 ancho altura cover para que se ajuste espacio contener  */
+    object-fit: cover;/*contenedor de la imagen*/
+}
+/*Trabajar con las capas*/
+.overlay {
+    position: absolute;/*si se mueve capa mueve posición*/
+    bottom: 0px;
+    left: 0px;/*capa juntos*/
+    background: rgb(0, 118, 192,0.75);
+    width: 100%;/*Seajuste capa*/
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s ease;/*Lo de adria*/
+}
+.overlay h2{
+    color: white;
+    /*grosor linea*/
+    font-weight: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.imagen:hover .overlay{
+    height: 100%;
+    cursor: pointer;
+}
+/*Medias queryes*/
+@media screen and (max-width:1000px){/*Tmaño maximo contenido 95%*/
+    .contenedor-imagenes{
+        width: 95%;
+    }
+}
+@media screen and (max-width:700px){/*Tmaño maximo contenido 95% cambia imagen*/
+    .contenedor-imagenes{
+        width: 90%;
+    }
+    .contenedor-imagenes .imagen{
+        width: 48%;
+    }
+}
+@media screen and (max-width:700px){/*Tmaño maximo contenido 80% cambia imagen el contenedor y el tamaño titulo*/
+    
+    h1{
+        font-size: 22px;
+    }
+    .contenedor-imagenes{
+        width: 98%;
+    }
+    .contenedor-imagenes .imagen{
+        width: 80%;
+    }
+}
+
